@@ -37,7 +37,7 @@
 
 <script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://lib.baomitu.com/vue/2.5.13/vue.min.js"></script>
-<script src="/assets/live2d-widget/L2Dwidget.min.js"></script>
+<script src="assets/live2d-widget/L2Dwidget.min.js"></script>
 <script>
 
 function init(model) {
@@ -59,16 +59,16 @@ var app = new Vue({
   },
   methods: {
     selectModel: function(it) {
-      init('/assets/' + it.model);
+      init('assets/' + it.model);
     }
   }
 });
 
-$.get('/assets/haruna/models.json', function(data) {
+$.get('assets/haruna/models.json', function(data) {
   app.list = data.list;
 });
 
-init('/assets/haruna/22/model.default.json');
+init('assets/haruna/22/model.default.json');
 </script>
 </body>
 </html>
