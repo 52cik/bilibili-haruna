@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>B站看板娘</title>
+  <link href="http://lib.baomitu.com/bulma/0.6.2/css/bulma.min.css" rel="stylesheet">
+  <style>
+    #app .list {
+      width: 200px;
+    }
+    #app .list li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        bilibili 看板娘集合
+      </p>
+    </div>
+  </div>
+</section>
+
+<div id="app" class="section">
+  <div class="container">
+    <h2 class="subtitle">点击更换服装</h2>
+    <ul class="list">
+      <li v-for="it of list" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://lib.baomitu.com/vue/2.5.13/vue.min.js"></script>
+<script src="/assets/live2d-widget/L2Dwidget.min.js"></script>
+<script>
+
+function init(model) {
+  L2Dwidget.init({
+    model: {
+      jsonPath: model
+    },
+    react: {
+      opacityDefault: 1,
+      opacityOnHover: 1
+    }
+  });
+}
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    list: []
+  },
+  methods: {
+    selectModel: function(it) {
+      init('/assets/' + it.model);
+    }
+  }
+});
+
+$.get('/assets/haruna/models.json', function(data) {
+  app.list = data.list;
+});
+
+init('/assets/haruna/22/model.default.json');
+</script>
+</body>
+</html>
