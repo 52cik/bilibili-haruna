@@ -11,6 +11,8 @@
     { "name": "33/2017.summer.normal.1", "model": "haruna/33/model.2017.summer.normal.1.json" },
     { "name": "33/2017.summer.normal.2", "model": "haruna/33/model.2017.summer.normal.2.json" },
     { "name": "33/2017.school", "model": "haruna/33/model.2017.school.json" },
-    { "name": "33/2017.newyear", "model": "haruna/33/model.2017.newyear.json" }
+    { "name": "33/2017.newyear", "model": "haruna/33/model.2017.newyear.json" },
+    { "name": "33/2016.xmas.1", "model": "haruna/33/model.2016.xmas.1.json" },
+    { "name": "33/2016.xmas.2", "model": "haruna/33/model.2016.xmas.2.json" }
   ]
 }

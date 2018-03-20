@@ -3,6 +3,10 @@ https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.defau
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.default.v2/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.default.v2/texture_02.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.default.v2/texture_03.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2016.xmas/texture_01.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2016.xmas/texture_02.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2016.xmas/texture_03_1.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2016.xmas/texture_03_2.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.tomo-bukatsu.low/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.tomo-bukatsu.low/texture_02.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.tomo-bukatsu.low/texture_03.png
