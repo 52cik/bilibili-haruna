@@ -13,6 +13,11 @@
     #app .list li {
       margin-bottom: 10px;
     }
+
+    #app .wrap {
+      display: flex;
+    }
+
     [v-cloak] {
       display: none;
     }
@@ -26,7 +31,7 @@
         bilibili 看板娘集合 (22娘，33娘)
       </p>
       <p class="subtitle">
-        基于 github page 预览，资源加载可能略慢，请耐心等待。
+        基于 GitHub Pages 预览，资源加载可能略慢，请耐心等待。
       </p>
     </div>
   </div>
@@ -35,9 +40,15 @@
 <div id="app" class="section" v-cloak>
   <div class="container">
     <h2 class="subtitle">点击更换服装</h2>
-    <ul class="list">
-      <li v-for="it of list" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
-    </ul>
+    <div class="wrap">
+      <ul class="list">
+        <li v-for="it of list22" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
+      </ul>
+
+      <ul class="list">
+        <li v-for="it of list33" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -61,7 +72,8 @@ function init(model) {
 var app = new Vue({
   el: '#app',
   data: {
-    list: []
+    list22: [],
+    list33: []
   },
   methods: {
     selectModel: function(it) {
@@ -71,7 +83,14 @@ var app = new Vue({
 });
 
 $.get('/bilibili-haruna/assets/haruna/models.json', function(data) {
-  app.list = data.list;
+  var list = data.list.slice(0);
+  app.list22 = data.list;
+  app.list33 = list.map(function(it) {
+    return {
+      name: it.name.replace('22', '33'),
+      model: it.model.replace('22', '33'),
+    };
+  });
 });
 
 init('/bilibili-haruna/assets/haruna/22/model.default.json');
