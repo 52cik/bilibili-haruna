@@ -40,12 +40,15 @@
 <div id="app" class="section" v-cloak>
   <div class="container">
     <h2 class="subtitle">点击更换服装</h2>
+    
     <div class="wrap">
       <ul class="list">
+        <li @click="randomModel('22')"><a class="button is-info is-small is-outlined">【22娘随机换装】</a></li>
         <li v-for="it of list22" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
       </ul>
 
       <ul class="list">
+          <li @click="randomModel('33')"><a class="button is-info is-small is-outlined">【33娘随机换装】</a></li>
         <li v-for="it of list33" @click="selectModel(it)"><a class="button is-info is-small is-outlined">{{ it.name }}</a></li>
       </ul>
     </div>
@@ -69,6 +72,76 @@ function init(model) {
   });
 }
 
+
+var textures = [];
+$.getJSON('assets/haruna/textures.json', function(data){
+  textures = data;
+});
+
+function randomTexture(type) {
+  var list = textures.filter(function(it) {
+    return it.indexOf('texture_0' + type) > 0;
+  });
+  var idx = Math.random() * list.length | 0;
+  return list[idx];
+}
+
+function randomModel(type) {
+  // var url = location.origin + '/bilibili-haruna/assets/haruna/'+ type;
+  var url = location.origin + '/bilibili-haruna/assets/haruna/'+ type;
+  // http://www.52cik.com/bilibili-haruna/assets/haruna/22/22.v2.moc
+  // http://www.52cik.com/bilibili-haruna/assets/haruna/22/motions/22.v2.idle-01.mtn
+  // http://www.52cik.com/bilibili-haruna/assets/haruna/22/22.1024/closet.default.v2/texture_00.png
+  var model = {
+    type: 'Live2D Model Setting',
+    name: type + '-random-model',
+    label: type,
+    model: url + '/' + type + '.v2.moc',
+    textures: [
+      url + '/' + type + '.1024/closet.default.v2/texture_00.png',
+      url + '/' + type + '.1024/' + randomTexture(1),
+      url + '/' + type + '.1024/' + randomTexture(2),
+      url + '/' + type + '.1024/' + randomTexture(3),
+    ],
+    layout: { center_x: 0, center_y: 0.1, width: 2.3, height: 2.3 },
+    motions: {
+      idle: [
+        {
+          file: url + '/motions/' + type + '.v2.idle-01.mtn',
+          fade_in: 2000,
+          fade_out: 2000,
+        },
+        {
+          file: url + '/motions/' + type + '.v2.idle-02.mtn',
+          fade_in: 2000,
+          fade_out: 2000,
+        },
+        {
+          file: url + '/motions/' + type + '.v2.idle-03.mtn',
+          fade_in: 100,
+          fade_out: 100,
+        },
+      ],
+      tap_body: [
+        {
+          file: url + '/motions/' + type + '.v2.touch.mtn',
+          fade_in: 500,
+          fade_out: 200,
+        },
+      ],
+      thanking: [
+        {
+          file: url + '/motions/' + type + '.v2.thanking.mtn',
+          fade_in: 2000,
+          fade_out: 2000,
+        },
+      ],
+    },
+  };
+  var blob = new Blob([JSON.stringify(model)], {type : 'application/json'});
+  return URL.createObjectURL(blob);
+}
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -78,6 +151,9 @@ var app = new Vue({
   methods: {
     selectModel: function(it) {
       init('/bilibili-haruna/assets/' + it.model);
+    },
+    randomModel: function(type) {
+      init(randomModel(type));
     }
   }
 });
