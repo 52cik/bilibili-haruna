@@ -37,6 +37,9 @@ https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.school/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.school/texture_02.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.school/texture_03.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.vdays/texture_01.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.vdays/texture_02.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2017.vdays/texture_03.png
 
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2018.spring/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/33/33.1024/closet.2018.spring/texture_02.png
@@ -87,6 +90,9 @@ https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.school/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.school/texture_02.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.school/texture_03.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.vdays/texture_01.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.vdays/texture_02.png
+https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2017.vdays/texture_03.png
 
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2018.spring/texture_01.png
 https://s1.hdslb.com/bfs/static/blive/live-assets/haruna/22/22.1024/closet.2018.spring/texture_02.png
