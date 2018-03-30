@@ -4,6 +4,7 @@
     { "name": "22/2018.spring", "model": "haruna/22/model.2018.spring.json" },
     { "name": "22/2018.lover", "model": "haruna/22/model.2018.lover.json" },
     { "name": "22/2017.cba-normal", "model": "haruna/22/model.2017.cba-normal.json" },
+    { "name": "22/2017.cba-super", "model": "haruna/22/model.2017.cba-super.json" },
     { "name": "22/2017.valley", "model": "haruna/22/model.2017.valley.json" },
     { "name": "22/2017.vdays", "model": "haruna/22/model.2017.vdays.json" },
     { "name": "22/2017.tomo-bukatsu.low", "model": "haruna/22/model.2017.tomo-bukatsu.low.json" },
