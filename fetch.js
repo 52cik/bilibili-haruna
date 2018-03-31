@@ -2,7 +2,7 @@ const fs = require('fs');
 const got = require('got');
 
 const urlList = 'https://api.live.bilibili.com/room/v1/room/get_user_recommend';
-const urlModel = 'https://api.live.bilibili.com/live/getRoomKanBanModel?roomid=8016907';
+const urlModel = 'https://api.live.bilibili.com/live/getRoomKanBanModel';
 
 // ua referer 模拟
 const host = 'https://live.bilibili.com/';
