@@ -1,0 +1,27 @@
+{
+  "name": "bilibili-haruna",
+  "version": "1.0.0",
+  "description": "B站看板娘集合 (live2d)",
+  "main": "fetch.js",
+  "scripts": {
+    "fetch": "ndoe fetch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/52cik/bilibili-haruna.git"
+  },
+  "keywords": [],
+  "author": "楼教主 <fe.52cik@gmail.com> (http://www.52cik.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/52cik/bilibili-haruna/issues"
+  },
+  "homepage": "https://github.com/52cik/bilibili-haruna#readme",
+  "dependencies": {
+    "got": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=8.5.0"
+  }
+}
