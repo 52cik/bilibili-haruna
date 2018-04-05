@@ -1,5 +1,6 @@
 const fs = require('fs');
 const got = require('got');
+const pLimit = require('p-limit');
 
 // 直播间列表页 翻页参数 page=1
 const urlList = 'https://api.live.bilibili.com/room/v1/room/get_user_recommend';
@@ -15,6 +16,7 @@ const headers = {
 };
 
 const dict = new Set(); // 用于去重
+const limit = pLimit(30); // 并发控制
 
 (async () => {
   // 抓取100页
@@ -23,15 +25,15 @@ const dict = new Set(); // 用于去重
     // 抓取列表
     const { body: { data: list } } = await got.get(urlList, { headers, query: { page: i }, json: true });
     // 抓房间模型json
-    for (let item of list) {
+    await Promise.all(list.map(item => limit(async () => {
       console.log(`fetch roomid: ${item.roomid}`);
       headers.Referer = `${referer}${item.roomid}`; // 修改来源，房间页地址
       // 抓取模型json
       const { body } = await got.get(urlModel, { headers, query: { roomid: item.roomid }, json: true });
       const png = body.textures[3].replace(/\?.+$/, ''); // 得到干净的 png 地址
       dict.add(png.match(/[^\/]+\/\w+\.png/)[0]); // 得到类型 (忽略 22，33 娘类地址)
-      fs.appendFileSync('tmp.txt', png + '\n'); // 记录到文本，防止跑崩从新开始
-    }
+      // fs.appendFileSync('tmp.txt', png + '\n'); // 记录到文本，防止跑崩从新开始
+    }).catch(console.error)));
   }
 
   // 输出结果

@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/52cik/bilibili-haruna#readme",
   "dependencies": {
-    "got": "^8.3.0"
+    "got": "^8.3.0",
+    "p-limit": "^1.2.0"
   },
   "engines": {
     "node": ">=8.5.0"
