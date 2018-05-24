@@ -4,7 +4,7 @@
   "description": "B站看板娘集合 (live2d)",
   "main": "fetch.js",
   "scripts": {
-    "fetch": "ndoe fetch.js",
+    "fetch": "node fetch.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -33,10 +33,10 @@ const limit = pLimit(30); // 并发控制
       const png = body.textures[3].replace(/\?.+$/, ''); // 得到干净的 png 地址
       dict.add(png.match(/[^\/]+\/\w+\.png/)[0]); // 得到类型 (忽略 22，33 娘类地址)
       // fs.appendFileSync('tmp.txt', png + '\n'); // 记录到文本，防止跑崩从新开始
-    }).catch(console.error)));
+    }).catch((err) => console.error(err.message))));
   }
 
   // 输出结果
   fs.writeFileSync('list.json', JSON.stringify(Array.from(dict), null, 2), 'utf8');
   console.log('done!');
-})().catch(console.error);
+})().catch((err) => console.error(err.message));
