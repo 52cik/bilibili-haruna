@@ -23,13 +23,13 @@ const limit = pLimit(30); // 并发控制
   for (let i = 1; i <= 100; i++) {
     console.log(`fetch page: ${i}`);
     // 抓取列表
-    const { body: { data: list } } = await got.get(urlList, { headers, query: { page: i }, json: true });
+    const { body: { data: list } } = await got.get(urlList, { headers, query: { page: i }, json: true, timeout: 2000 });
     // 抓房间模型json
     await Promise.all(list.map(item => limit(async () => {
       console.log(`fetch roomid: ${item.roomid}`);
       headers.Referer = `${referer}${item.roomid}`; // 修改来源，房间页地址
       // 抓取模型json
-      const { body } = await got.get(urlModel, { headers, query: { roomid: item.roomid }, json: true });
+      const { body } = await got.get(urlModel, { headers, query: { roomid: item.roomid }, json: true, timeout: 2000 });
       const png = body.textures[3].replace(/\?.+$/, ''); // 得到干净的 png 地址
       dict.add(png.match(/[^\/]+\/\w+\.png/)[0]); // 得到类型 (忽略 22，33 娘类地址)
       // fs.appendFileSync('tmp.txt', png + '\n'); // 记录到文本，防止跑崩从新开始
