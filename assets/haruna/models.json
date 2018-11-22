@@ -1,6 +1,7 @@
 {
   "list": [
     { "name": "22/default", "model": "haruna/22/model.default.json" },
+    { "name": "22/2018.bls-winter", "model": "haruna/22/model.2018.bls-winter.json" },
     { "name": "22/2018.bls-summer", "model": "haruna/22/model.2018.bls-summer.json" },
     { "name": "22/2018.spring", "model": "haruna/22/model.2018.spring.json" },
     { "name": "22/2018.lover", "model": "haruna/22/model.2018.lover.json" },
