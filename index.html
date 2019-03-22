@@ -2,43 +2,16 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>B站看板娘集合</title>
-  <link href="https://lib.baomitu.com/bulma/0.6.2/css/bulma.min.css" rel="stylesheet">
+  <link href="//lib.baomitu.com/bulma/0.6.2/css/bulma.min.css" rel="stylesheet">
   <style>
-    #app .list {
-      width: 200px;
-    }
-    #app .list li {
-      margin-bottom: 10px;
-    }
-
-    #app .wrap {
-      display: flex;
-    }
-
-    .github {
-      position: fixed;
-      top: 0;
-      right: 0;
-    }
-
-    .github svg {
-      fill: #e1e1e1;
-      color: #000;
-      position: absolute;
-      top: 0;
-      border: 0;
-      right: 0;
-      z-index: 99;
-      width: 4.375rem;
-      height: 4.375rem;
-    }
-
-    [v-cloak] {
-      display: none;
-    }
+    #app .list{width:200px;}
+    #app .list li{margin-bottom:10px;}
+    #app .wrap{display:flex;}
+    .github{position:fixed;top:0;right:0;}
+    .github svg{position:absolute;top:0;right:0;z-index:99;width:4.375rem;height:4.375rem;border:0;color:#000;fill:#e1e1e1;}
+    [v-cloak]{display:none;}
   </style>
 </head>
 <body>
@@ -76,11 +49,10 @@
   </div>
 </div>
 
-<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://lib.baomitu.com/vue/2.5.13/vue.min.js"></script>
-<script src="/bilibili-haruna/assets/live2d-widget/L2Dwidget.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="//lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+<script src="assets/live2d-widget/L2Dwidget.min.js"></script>
 <script>
-
 function init(model) {
   L2Dwidget.init({
     model: {
@@ -93,12 +65,13 @@ function init(model) {
   });
 }
 
-
+// 加载所有服装
 var textures = [];
-$.getJSON('assets/haruna/textures.json', function(data){
+$.getJSON('assets/haruna/textures.json', function(data) {
   textures = data;
 });
 
+// 随机服装组合
 function randomTexture(type) {
   var list = textures.filter(function(it) {
     return it.indexOf('texture_0' + type) > 0;
@@ -107,9 +80,9 @@ function randomTexture(type) {
   return list[idx];
 }
 
+// 随机模型
 function randomModel(type) {
-  // var url = location.origin + '/bilibili-haruna/assets/haruna/'+ type;
-  var url = location.origin + '/bilibili-haruna/assets/haruna/'+ type;
+  var url = location.origin + location.pathname + 'assets/haruna/'+ type;
   // https://www.52cik.com/bilibili-haruna/assets/haruna/22/22.v2.moc
   // https://www.52cik.com/bilibili-haruna/assets/haruna/22/motions/22.v2.idle-01.mtn
   // https://www.52cik.com/bilibili-haruna/assets/haruna/22/22.1024/closet.default.v2/texture_00.png
@@ -170,16 +143,19 @@ var app = new Vue({
     list33: []
   },
   methods: {
+    // 选择模型
     selectModel: function(it) {
-      init('/bilibili-haruna/assets/' + it.model);
+      init('assets/' + it.model);
     },
+    // 水机模型
     randomModel: function(type) {
       init(randomModel(type));
     }
   }
 });
 
-$.get('/bilibili-haruna/assets/haruna/models.json', function(data) {
+// 加载所有模型
+$.get('assets/haruna/models.json', function(data) {
   var list = data.list.slice(0);
   app.list22 = data.list;
   app.list33 = list.map(function(it) {
@@ -190,7 +166,8 @@ $.get('/bilibili-haruna/assets/haruna/models.json', function(data) {
   });
 });
 
-init('/bilibili-haruna/assets/haruna/22/model.default.json');
+// 初始化默认模型
+init('assets/haruna/22/model.default.json');
 </script>
 </body>
 </html>
